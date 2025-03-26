@@ -1,0 +1,44 @@
+﻿@model Test20250326.AppWebMVC.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Detalles del Almacén";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4 text-primary">Detalles del Almacén</h1>
+
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Información del Almacén</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-3 fw-bold text-muted">
+                            @Html.DisplayNameFor(model => model.WarehouseName)
+                        </dt>
+                        <dd class="col-sm-9">
+                            @Html.DisplayFor(model => model.WarehouseName)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex gap-3">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning btn-lg flex-grow-1">
+                    <i class="bi bi-pencil me-2"></i>Editar
+                </a>
+                <a asp-action="Index" class="btn btn-outline-secondary btn-lg flex-grow-1">
+                    <i class="bi bi-arrow-left-circle me-2"></i>Volver a la Lista
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Bootstrap Icons are typically included via CSS, not JS -->
+    <!-- If you're using the CSS version, this should be in the head section of your layout -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
+}

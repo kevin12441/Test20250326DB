@@ -1,0 +1,46 @@
+﻿@model Test20250326.AppWebMVC.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h1 class="mb-0">Editar Almacén</h1>
+            <h4 class="mb-0">Detalles del Almacén</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3 alert alert-danger" role="alert"></div>
+
+                <!-- Campo oculto para el ID -->
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Campo para el nombre del almacén -->
+                <div class="form-group mb-3">
+                    <label asp-for="WarehouseName" class="form-label fw-bold"></label>
+                    <input asp-for="WarehouseName" class="form-control" placeholder="Introduce el nombre del almacén" />
+                    <span asp-validation-for="WarehouseName" class="text-danger"></span>
+                </div>
+
+                <!-- Botones -->
+                <div class="form-group d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save me-2"></i>Guardar
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left-circle me-2"></i>Volver a la Lista
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

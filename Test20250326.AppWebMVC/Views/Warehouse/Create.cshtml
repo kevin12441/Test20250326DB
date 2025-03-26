@@ -1,0 +1,74 @@
+﻿@model Test20250326.AppWebMVC.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h2 class="mb-0">Crear Nuevo Almacén</h2>
+                </div>
+                <div class="col-auto">
+                    <a asp-action="Index" class="btn btn-light btn-sm">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body p-4">
+            <form asp-action="Create" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger d-none" role="alert"></div>
+
+                <div class="form-floating mb-4">
+                    <input asp-for="WarehouseName"
+                           class="form-control form-control-lg"
+                           placeholder="Nombre del almacén"
+                           required />
+                    <label asp-for="WarehouseName" class="form-label">Nombre del Almacén</label>
+                    <span asp-validation-for="WarehouseName" class="text-danger small"></span>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit"
+                            class="btn btn-success btn-lg">
+                        <i class="fas fa-save"></i> Crear Almacén
+                    </button>
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-footer bg-light text-muted text-center">
+            <small>Ingrese los datos requeridos para crear un nuevo almacén</small>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+}
